@@ -14,3 +14,5 @@ spec/lib/jasmine-1.2.0/jasmine-html.js
 spec/lib/jasmine-1.2.0/jasmine.css
 
 spec/lib/jasmine-1.2.0/jasmine.js
+
+.DS_Store
