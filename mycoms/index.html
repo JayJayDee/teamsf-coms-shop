@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+<title>콤스토리</title>
+<link rel="stylesheet" href="../css/jquery.mobile-1.3.1.min.css" />
+<link rel="stylesheet" href="../css/common.css"/>
+<link rel="stylesheet" href="../css/iscroll.css"/>
+<link rel="stylesheet" href="../css/font-awesome.css">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery.mobile-1.3.1.min.js"></script>
+<script type="text/javascript" src="../js/iscroll.js"></script>
+<script type="text/javascript" src="../js/params.js"></script>
+<script type="text/javascript" src="../js/shopLoginHandler.js"></script>
+<script type="text/javascript" src="./js/mycoms.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+<div data-role="page" id="page-compon">
+    <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
+        <h1>콤폰 승인 관리</h1>        
+        <div data-role="navbar">
+        <ul>
+            <li><a data-ajax="false" href="./index.html" class="ui-btn-active">승인 대기 콤폰</a></li>
+            <li><a data-ajax="false" href="#page-used-compon">승인 완료 콤폰</a></li>
+        </ul>
+        </div><!-- /navbar -->
+    </div><!-- /header -->
+
+    <div data-role="content">        
+    <div id="wrapper" class="content-compon">
+        <div id="scroller">            
+            <div class="area-divider"><i class="icon-arrow-right"></i> 현재 승인 요청 중인 콤폰 내역입니다.</div>
+            <div id="container"></div>
+        </div>
+    </div><!-- /content -->
+    </div>
+    <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+            <ul>
+                <li><a href="../coms/index.html" id="coms" data-icon="custom" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" id="mycoms" class="ui-btn-active" data-icon="custom" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" id="comstory" data-icon="custom">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-ajax="false" id="friend" data-icon="custom">콤스고객</a></li>
+                <li><a href="../setting/index.html" id="setting" data-icon="custom">설정</a></li>
+            </ul>
+        </div>
+    </div>                     
+</div><!-- /page -->
+
+<div data-role="page" id="page-used-compon">
+    <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
+        <h1>콤폰 승인 관리</h1>        
+        <div data-role="navbar">
+        <ul>
+            <li><a data-ajax="false" href="./index.html" >승인 대기 콤폰</a></li>
+            <li><a data-ajax="false" href="#page-used-compon" class="ui-btn-active">승인 완료 콤폰</a></li>
+        </ul>
+        </div><!-- /navbar -->
+    </div><!-- /header -->
+
+    <div data-role="content">        
+    <div id="wrapper" class="content-compon">
+        <div id="scroller">            
+            <div class="area-divider"><i class="icon-arrow-right"></i> 최근 30일간 승인 완료된 콤폰 내역입니다.</div>
+            <div id="container2"></div>
+        </div>
+    </div><!-- /content -->
+    </div>
+    <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+            <ul>
+                <li><a href="../coms/index.html" id="coms" data-icon="custom" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" id="mycoms" class="ui-btn-active" data-icon="custom" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" id="comstory" data-icon="custom">콤스장부</a></li>
+                <li><a href="../friend/index.html" data-ajax="false" id="friend" data-icon="custom">콤스고객</a></li>
+                <li><a href="../setting/index.html" id="setting" data-icon="custom">설정</a></li>
+            </ul>
+        </div>
+    </div>                     
+</div><!-- /page -->
+
+</body>
+</html>
+
