@@ -31,16 +31,14 @@ body {
     overflow: hidden;
 }
 
-.content-compon {
-    top: 96px !important;
-}
 
 .content-coms {
     top: 139px !important;
 }
 .content-near-shop,
-.content-shop {
-    top: 61px !important;
+.content-shop,
+.content-compon {
+    top: 90px !important;
 }
 
 #scroller {

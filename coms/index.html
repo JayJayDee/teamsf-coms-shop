@@ -20,7 +20,59 @@
 
 </head>
 <body>
-<div data-role="page">
+<div data-role="page" id="page-shop-info">
+    <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
+        <h1>마이콤스</h1>
+    </div><!-- /header -->
+
+    <div data-role="content">
+    <div id="wrapper"><div id="scroller">
+            <div class="area-padding">    
+                <div class="row area-member-info">
+                    <div class="span"><img id="profile-img" src="./img/img-shop-profile1.jpg" class="well"></div>
+                    <div class="span">
+                        <p>상점업종 <span id="name"></span></p>
+                        <p>상점위치 <span id="location"></span></p>
+                        <p>영업시간 <span id="time"></span></p>
+                        <p>정기휴일 <span id="closed"></span></p>
+                        <p>전화번호 <span id="phone"></span></p>
+                    </div>
+                </div>
+                <hr>
+                <p>콤보 서비스 기한 : <span id="limit-date"></span></p>
+                <hr>
+                <a href="#page-menu-select" data-role="button" data-theme="b">상점 관리 하기</a>
+            </div>
+            <div class="area-divider"><i class="icon-arrow-right"></i> 우리 상점 콤보기빙 현황</div>
+            <div class="area-padding">
+                <p>콤스 고객이 우리상점을 통해 5콤보를 달성하여 국내의 빈곤 어린이들에게 선물된 소셜아이템 현황입니다.</p>
+                <div class="row banner-gift">
+                    <div class="span banner-gift-inner"><i class="icon-gift"></i><p>총 ( <span id="giving1"></span> )개</p></div>
+                    <div class="span banner-gift-inner"><i class="icon-gift"></i><p>총 (  <span id="giving2"></span>  )개</p></div>
+                    <div class="span banner-gift-inner"><i class="icon-gift"></i><p>총 ( <span id="giving3"></span> )개</p></div>
+                    <div class="span banner-gift-inner"><i class="icon-gift"></i><p>총 (  <span id="giving4"></span>  )개</p></div>                    
+                </div>
+                <p class="area-shop-more">콤보 스타일 -> 콤보할인 받고, 콤보 기빙 하고!</p>
+            </div>
+        </div></div>
+    </div><!-- /content -->
+
+
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" class="ui-btn-active" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about">설정</a></li>
+            </ul>
+        </div>
+    </div>   
+                 
+</div><!-- /page -->
+
+<div data-role="page" id="page-menu-select">
     <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
         <h1>상점관리</h1>
         <a href="./index.html" class="ui-btn-right" data-ajax="false" data-rel="dialog">닫기</a>
@@ -37,17 +89,17 @@
             </ul>
         </div>
     </div>
-    <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
-        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
-            <ul>
-                <li><a href="../coms/index.html" id="coms" class="ui-btn-active"  data-icon="custom" data-ajax="false">상점관리</a></li>
-                <li><a href="../mycoms/index.html" id="mycoms" data-icon="custom" data-ajax="false">승인관리</a></li>
-                <li><a href="../comstory/index.html" id="comstory" data-icon="custom" data-ajax="false">콤스장부</a></li>
-                <li><a href="../customer/index.html" data-ajax="false" id="friend" data-icon="custom">콤스고객</a></li>
-                <li><a href="../setting/index.html" id="setting" data-icon="custom">설정</a></li>
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" class="ui-btn-active" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about">설정</a></li>
             </ul>
         </div>
-    </div>            
+    </div>                
 </div><!-- /page -->
 
 <div data-role="page" id="page-service-duration">
@@ -57,33 +109,39 @@
     </div><!-- /header -->
     
     <div data-role="content">
-    	<div id="wrapper" style="overflow:auto;">
-	   		<div>
-	   			<p>현재 입점 기한 : <span id="service-sales-limit"></span></p>
-	   			<p>고객 이용 기한 : <span id="service-customer-limit"></span></p>
-	   		</div>
-	   		
-	   		<div>
-	   			기한 갱신 
-	   			<select id="duration-start-selector"></select>
-	   			<select id="duration-end-selector"></select>	
-	   		</div>
-	   		
-	   		<a id="btn-duration-modify" data-role="button" data-theme="b">입점기한 연장하기</a>
+        <div class="notice-near-shop">
+            <p><i class="icon-asterisk"></i> 가맹점 등록 후 콤보 서비스(콤폰 판매) 최소 기한은 3개월 이며, 3개월 단위로 갱신 가능합니다.</p>
+            <p><i class="icon-asterisk"></i> 기한 갱신을 하지 않을 시 서비스 종료 30일 전부터 '서비스 종료 임박' 안내 메시지가 고객들에게 안내됩니다.</p>
+            <p><i class="icon-asterisk"></i> 한번 서비스 기한을 갱신 하시면 고객과의 신뢰 문제로 기한 연장을 다시 취소하실 수 없으니 주의하시기 바랍니다.</p>
+            <p><i class="icon-asterisk"></i> 콤보 서비스 종료 후 30일 이내까지는 이미 판매된 콤폰들을 고객이 사용할 수 있도록 콤폰 승인을 지속적으로 관리해 주시기 바랍니다.</p>
+        </div>
+		<div class="area-padding">
+            <hr>
+   			<p>콤보 서비스 기한 : <span id="service-sales-limit"></span> ~ <span id="service-customer-limit"></span></p>
+   			<hr>
+   	        <div data-role="fieldcontain">
+        		<label class="ui-select">기한 갱신</label>
+       			<select id="duration-start-selector"></select>
+       			<select id="duration-end-selector"></select>	
+            </div>
+
+            <a id="btn-duration-modify" data-role="button" data-theme="b">입점기한 연장하기</a>
    		</div>
+   		
+   		
     </div>
     
-    <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
-        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
-            <ul>
-                <li><a href="../coms/index.html" id="coms" class="ui-btn-active"  data-icon="custom" data-ajax="false">상점관리</a></li>
-                <li><a href="../mycoms/index.html" id="mycoms" data-icon="custom" data-ajax="false">승인관리</a></li>
-                <li><a href="../comstory/index.html" id="comstory" data-icon="custom">콤스장부</a></li>
-                <li><a href="../friend/index.html" data-ajax="false" id="friend" data-icon="custom">콤스고객</a></li>
-                <li><a href="../setting/index.html" id="setting" data-icon="custom">설정</a></li>
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" class="ui-btn-active" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about">설정</a></li>
             </ul>
         </div>
-    </div>
+    </div>    
 </div>
 
 <div data-role="page" id="page-menu-img-modify">
@@ -92,7 +150,7 @@
         <a href="./index.html" class="ui-btn-right" data-ajax="false" data-rel="dialog">닫기</a>
     </div><!-- /header -->
     
-    <div data-role="content" style="overflow:auto;">
+    <div data-role="content">
     	<div>
         	<div class="area-shop-menu"><img id="menu-img" src="./img/img-shop-menu1.jpg"></div>
         	<div class="ui-grid-a">
@@ -102,17 +160,17 @@
     	</div>
     </div>
     
-    <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
-        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
-            <ul>
-                <li><a href="../coms/index.html" id="coms" class="ui-btn-active"  data-icon="custom" data-ajax="false">상점관리</a></li>
-                <li><a href="../mycoms/index.html" id="mycoms" data-icon="custom" data-ajax="false">승인관리</a></li>
-                <li><a href="../comstory/index.html" id="comstory" data-icon="custom">콤스장부</a></li>
-                <li><a href="../friend/index.html" data-ajax="false" id="friend" data-icon="custom">콤스고객</a></li>
-                <li><a href="../setting/index.html" id="setting" data-icon="custom">설정</a></li>
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" class="ui-btn-active" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about">설정</a></li>
             </ul>
         </div>
-    </div>
+    </div>    
 </div><!-- /page -->
 
 <div data-role="page" id="page-profile-modify">
@@ -122,71 +180,61 @@
     </div><!-- /header -->
     
     <div data-role="content">
-    	<div id="wrapper" class="content-shop"><div id="scroller">
-        <div>
+    	<div>
             <div class="row area-shop-info area-padding">
                 <div class="span"><img id="profile-img" src="./img/img-shop-profile1.jpg" class="well"></div>
-                <div class="span">
-                    <div class="ui-block-b">
-                    	<button id="btn-modify-profile-image">사진 변경</button>
+                <div class="span">    
+                    <div data-role="fieldcontain">
+                        <label class="ui-select">상점 사진 변경</label>                
+                       	<button id="btn-modify-profile-image">사진 변경</button>                    
                     </div>
                 </div>
             </div>
         </div>
         <div>
             <div class="row area-shop-info area-padding">
-            	<div class="ui-grid-a">
-                    <div class="ui-block-a" style="padding-top:10px;"><b>업종</b></div>
-                    <div class="ui-block-b">
-                    	<select id="shop-category-selector"></select>
-                    </div>
+            	<div data-role="fieldcontain">
+                    <label class="ui-select" for="category">상점 업종</label>
+                    <select id="shop-category-selector" data-mini="true"></select>                    
                 </div>
-                <div class="ui-grid-a">
-                    <div class="ui-block-a" style="padding-top:10px;"><b>상점위치</b></div>
-                    <div class="ui-block-b">
-                    	<input id="shop-location" type="text" />
-                    </div>
+                <div data-role="fieldcontain">
+                    <label class="ui-select">상점 위치</label>
+                    <input id="shop-location" type="text"/>
                 </div>
-                <div class="ui-grid-a">
-                    <div class="ui-block-a" style="padding-top:10px;"><b>영업시간</b></div>
-                    <div class="ui-block-b">
-                    	<select id="shop-close-time-start"></select> 
-                		<select id="shop-close-time-end"></select>
-                    </div>
+                <div data-role="fieldcontain">
+                    <label class="ui-select">영업시간</label>
+                    <select id="shop-close-time-start" data-mini="true"></select> 
+                	<select id="shop-close-time-end" data-mini="true"></select>                    
                 </div>
-                <div class="ui-grid-a">
-                    <div class="ui-block-a" style="padding-top:10px;"><b>정기휴일</b></div>
-                    <div class="ui-block-b">
-                    	<input id="shop-close" type="text" />
-                    </div>
+                <div data-role="fieldcontain">
+                    <label class="ui-select">정기휴일</label>
+                    <input id="shop-close" type="text" />                    
                 </div>
-                <div class="ui-grid-a">
-                    <div class="ui-block-a" style="padding-top:10px;"><b>전화번호</b></div>
-                    <div class="ui-block-b">
-                    	<input id="shop-phone" type="text" />
-                    </div>
+                <div data-role="fieldcontain">
+                    <label class="ui-select">전화번호</label>
+                    <input id="shop-phone" type="text" />                    
                 </div>
                 
             </div>
         </div>
-        	<div class="ui-grid-a">
-                    <div class="ui-block-a"><a id="btn-modify" href="#" data-role="button" data-theme="b">변경완료</a></div>
-                    <div class="ui-block-b"><a href="./index.html" data-role="button">취소</a></div>
-            </div>
-        </div></div>
+    	<div class="ui-grid-a">
+                <div class="ui-block-a"><a id="btn-modify" href="#" data-role="button" data-theme="b">변경완료</a></div>
+                <div class="ui-block-b"><a href="./index.html" data-role="button">취소</a></div>
+        </div>
+        
     </div>
-    
-    <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
-        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
-            <ul>
-                <li><a href="../coms/index.html" id="coms" class="ui-btn-active"  data-icon="custom" data-ajax="false">상점관리</a></li>
-                <li><a href="../mycoms/index.html" id="mycoms" data-icon="custom" data-ajax="false">승인관리</a></li>
-                <li><a href="../comstory/index.html" id="comstory" data-icon="custom">콤스장부</a></li>
-                <li><a href="../friend/index.html" data-ajax="false" id="friend" data-icon="custom">콤스고객</a></li>
-                <li><a href="../setting/index.html" id="setting" data-icon="custom">설정</a></li>
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" class="ui-btn-active" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about">설정</a></li>
             </ul>
         </div>
-    </div>
+    </div>      
+
 </div><!-- /page -->
 
 
@@ -207,105 +255,103 @@
             <div data-role="fieldcontain">
                 <label for="compon1">솔로 콤폰</label>
                 <select name="compon1" id="compon1" data-mini="true">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                </select>
-                <span for="compon1" class="ui-select">만원권</span>
+                    <option value="1">1 만원</option>
+                    <option value="2">2 만원</option>
+                    <option value="3">3 만원</option>
+                    <option value="4">4 만원</option>
+                    <option value="5">5 만원</option>
+                    <option value="6">6 만원</option>
+                    <option value="7">7 만원</option>
+                    <option value="8">8 만원</option>
+                    <option value="9">9 만원</option>
+                    <option value="10">10 만원</option>
+                    <option value="11">11 만원</option>
+                    <option value="12">12 만원</option>
+                    <option value="13">13 만원</option>
+                    <option value="14">14 만원</option>
+                    <option value="15">15 만원</option>
+                </select>                
             </div>
             <div data-role="fieldcontain">
                 <label for="compon2">커플 콤폰</label>
                 <select name="compon2" id="compon2" data-mini="true">
                     
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
+                    <option value="1">1 만원</option>
+                    <option value="2">2 만원</option>
+                    <option value="3">3 만원</option>
+                    <option value="4">4 만원</option>
+                    <option value="5">5 만원</option>
+                    <option value="6">6 만원</option>
+                    <option value="7">7 만원</option>
+                    <option value="8">8 만원</option>
+                    <option value="9">9 만원</option>
+                    <option value="10">10 만원</option>
+                    <option value="11">11 만원</option>
+                    <option value="12">12 만원</option>
+                    <option value="13">13 만원</option>
+                    <option value="14">14 만원</option>
+                    <option value="15">15 만원</option>
                 </select>                
-                <span for="compon1" class="ui-select">만원권</span>
+                
             </div>
             <div data-role="fieldcontain">
                 <label for="compon3">그룹 콤폰</label>
                 <select name="compon3" id="compon3" data-mini="true">
                     
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                </select>
-                <span for="compon1" class="ui-select">만원권</span>
+                    <option value="1">1 만원</option>
+                    <option value="2">2 만원</option>
+                    <option value="3">3 만원</option>
+                    <option value="4">4 만원</option>
+                    <option value="5">5 만원</option>
+                    <option value="6">6 만원</option>
+                    <option value="7">7 만원</option>
+                    <option value="8">8 만원</option>
+                    <option value="9">9 만원</option>
+                    <option value="10">10 만원</option>
+                    <option value="11">11 만원</option>
+                    <option value="12">12 만원</option>
+                    <option value="13">13 만원</option>
+                    <option value="14">14 만원</option>
+                    <option value="15">15 만원</option>
+                </select>                
             </div>
             <div data-role="fieldcontain">
                 <label for="compon4">단체 콤폰</label>
                 <select name="compon4" id="compon4" data-mini="true">
                     
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
+                    <option value="1">1 만원</option>
+                    <option value="2">2 만원</option>
+                    <option value="3">3 만원</option>
+                    <option value="4">4 만원</option>
+                    <option value="5">5 만원</option>
+                    <option value="6">6 만원</option>
+                    <option value="7">7 만원</option>
+                    <option value="8">8 만원</option>
+                    <option value="9">9 만원</option>
+                    <option value="10">10 만원</option>
+                    <option value="11">11 만원</option>
+                    <option value="12">12 만원</option>
+                    <option value="13">13 만원</option>
+                    <option value="14">14 만원</option>
+                    <option value="15">15 만원</option>
                 </select>
-                <span for="compon1" class="ui-select">만원권</span>
+                
             </div>
             <a id="btn-compon-price" data-role="button" data-theme="b">콤폰 금액 설정 완료</a>
         </div>
 
     </div><!-- end of content -->
-    <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
-        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
-            <ul>
-                <li><a href="../coms/index.html" id="coms" class="ui-btn-active"  data-icon="custom" data-ajax="false">상점관리</a></li>
-                <li><a href="../mycoms/index.html" id="mycoms" data-icon="custom" data-ajax="false">승인관리</a></li>
-                <li><a href="../comstory/index.html" id="comstory" data-icon="custom">콤스장부</a></li>
-                <li><a href="../friend/index.html" data-ajax="false" id="friend" data-icon="custom">콤스고객</a></li>
-                <li><a href="../setting/index.html" id="setting" data-icon="custom">설정</a></li>
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" class="ui-btn-active" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about">설정</a></li>
             </ul>
         </div>
-    </div>            
+    </div>               
 </div><!-- /page -->
 
 
@@ -327,127 +373,127 @@
                 <label for="combo1">1콤보 할인률</label>
                 <select name="combo1" id="combo1" data-mini="true">
                     
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
+                    <option value="1">1 %</option>
+                    <option value="2">2 %</option>
+                    <option value="3">3 %</option>
+                    <option value="4">4 %</option>
+                    <option value="5">5 %</option>
+                    <option value="6">6 %</option>
+                    <option value="7">7 %</option>
+                    <option value="8">8 %</option>
+                    <option value="9">9 %</option>
+                    <option value="10">10 %</option>
+                    <option value="11">11 %</option>
+                    <option value="12">12 %</option>
+                    <option value="13">13 %</option>
+                    <option value="14">14 %</option>
+                    <option value="15">15 %</option>
                 </select>
-                <span for="combo1" class="ui-select">%</span>
+                
             </div>
             <div data-role="fieldcontain">
                 <label for="combo2">2콤보 할인률</label>
                 <select name="combo2" id="combo2" data-mini="true">
                     
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
+                    <option value="1">1 %</option>
+                    <option value="2">2 %</option>
+                    <option value="3">3 %</option>
+                    <option value="4">4 %</option>
+                    <option value="5">5 %</option>
+                    <option value="6">6 %</option>
+                    <option value="7">7 %</option>
+                    <option value="8">8 %</option>
+                    <option value="9">9 %</option>
+                    <option value="10">10 %</option>
+                    <option value="11">11 %</option>
+                    <option value="12">12 %</option>
+                    <option value="13">13 %</option>
+                    <option value="14">14 %</option>
+                    <option value="15">15 %</option>
                 </select>                
-                <span for="combo2" class="ui-select">%</span>
+                
             </div>
             <div data-role="fieldcontain">
                 <label for="combo3">3콤보 할인률</label>
                 <select name="combo3" id="combo3" data-mini="true">
                     
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
+                    <option value="1">1 %</option>
+                    <option value="2">2 %</option>
+                    <option value="3">3 %</option>
+                    <option value="4">4 %</option>
+                    <option value="5">5 %</option>
+                    <option value="6">6 %</option>
+                    <option value="7">7 %</option>
+                    <option value="8">8 %</option>
+                    <option value="9">9 %</option>
+                    <option value="10">10 %</option>
+                    <option value="11">11 %</option>
+                    <option value="12">12 %</option>
+                    <option value="13">13 %</option>
+                    <option value="14">14 %</option>
+                    <option value="15">15 %</option>
                 </select>
-                <span for="combo3" class="ui-select">%</span>
+                
             </div>
             <div data-role="fieldcontain">
                 <label for="combo4">4콤보 할인률</label>
                 <select name="combo4" id="combo4" data-mini="true">
                     
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
+                    <option value="1">1 %</option>
+                    <option value="2">2 %</option>
+                    <option value="3">3 %</option>
+                    <option value="4">4 %</option>
+                    <option value="5">5 %</option>
+                    <option value="6">6 %</option>
+                    <option value="7">7 %</option>
+                    <option value="8">8 %</option>
+                    <option value="9">9 %</option>
+                    <option value="10">10 %</option>
+                    <option value="11">11 %</option>
+                    <option value="12">12 %</option>
+                    <option value="13">13 %</option>
+                    <option value="14">14 %</option>
+                    <option value="15">15 %</option>
                 </select>
-                <span for="combo4" class="ui-select">%</span>
+                
             </div>
             <div data-role="fieldcontain">
                 <label for="combo5">5콤보 할인률</label>
                 <select name="combo5" id="combo5" data-mini="true">
                     
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
+                    <option value="1">1 %</option>
+                    <option value="2">2 %</option>
+                    <option value="3">3 %</option>
+                    <option value="4">4 %</option>
+                    <option value="5">5 %</option>
+                    <option value="6">6 %</option>
+                    <option value="7">7 %</option>
+                    <option value="8">8 %</option>
+                    <option value="9">9 %</option>
+                    <option value="10">10 %</option>
+                    <option value="11">11 %</option>
+                    <option value="12">12 %</option>
+                    <option value="13">13 %</option>
+                    <option value="14">14 %</option>
+                    <option value="15">15 %</option>
                 </select>
-                <span for="combo5" class="ui-select">%</span>
+                
             </div>
             <a id="btn-combo-discount" data-role="button" data-theme="b">콤보 할인율 설정 완료</a>
         </div>
 
     </div><!-- end of content -->
-    <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-tap-toggle="false">
-        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
-            <ul>
-                <li><a href="../coms/index.html" id="coms" class="ui-btn-active"  data-icon="custom" data-ajax="false">상점관리</a></li>
-                <li><a href="../mycoms/index.html" id="mycoms" data-icon="custom" data-ajax="false">승인관리</a></li>
-                <li><a href="../comstory/index.html" id="comstory" data-icon="custom" data-ajax="false">콤스장부</a></li>
-                <li><a href="../friend/index.html" data-ajax="false" id="friend" data-icon="custom">콤스고객</a></li>
-                <li><a href="../setting/index.html" id="setting" data-icon="custom">설정</a></li>
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" class="ui-btn-active" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about">설정</a></li>
             </ul>
         </div>
-    </div>            
+    </div>               
 </div><!-- /page -->
 
 <script type="text/javascript">initPhonegap();</script>

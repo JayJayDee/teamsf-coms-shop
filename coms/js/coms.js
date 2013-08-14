@@ -9,8 +9,47 @@ function initAll ()
 
 	var sid = shop.id;
 	
+	
 	g_iu = new ImageUploader ();
 	g_iu.setNavigatorObj ( navigator );
+
+	var param = 
+	{
+		sid:sid
+	};
+
+
+	$.ajax ({
+		type:"post",
+		data:param,
+		dataType:"json",
+		url:"http://teamsf.co.kr/~coms/shop_manage_info_show.php",
+		success:function ( resultObj )
+		{
+			if ( resultObj.success == true ) { 
+				console.log(resultObj); 
+				$("#profile-img").attr("src",resultObj.profile_img_path);
+				
+				
+				$("#name").html(resultObj.category_name);
+				$("#location").html(resultObj.location);
+				$("#time").html(resultObj.start_time+"~"+resultObj.end_time);
+				$("#closed").html(resultObj.closed);
+				$("#phone").html(resultObj.phone);
+				
+				$("#limit-date").html(resultObj.shop_start_date+" ~ "+resultObj.shop_end_date);
+				
+
+				$("#giving1").html(resultObj.giving_1.giving_count);
+				$("#giving2").html(resultObj.giving_2.giving_count );
+				$("#giving3").html(resultObj.giving_3.giving_count );
+				$("#giving4").html(resultObj.giving_4.giving_count );
+				
+			}
+		
+		}
+	});
+	
 	
 	$("#btn-combo-discount").on ( "click" , function ()
 	{
@@ -90,6 +129,7 @@ function initAll ()
 			});
 		}
 	});
+
 	
 	// 메뉴 이미지 변경 페이지
 	$( "#page-menu-img-modify" ).on ( "pagecreate" , function (event)
@@ -282,8 +322,6 @@ function initAll ()
 			$("#shop-close-time-start").html(timeStartExpr).val(timeStartIdx).selectmenu("refresh");
 			$("#shop-close-time-end").html(timeEndExpr).val(timeEndIdx).selectmenu("refresh");
 			
-			myScroll = new IScroll('#wrapper', { scrollbars: true, mouseWheel: true, interactiveScrollbars: true, click:true });
-	        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 		});
 	});
 	

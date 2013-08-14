@@ -90,7 +90,7 @@ $(document).ready(function(){
 	        compons_html += "</div>";
 
 	        $('#container2').html(compons_html);
-	        myScroll = new IScroll('#wrapper', { scrollbars: true, mouseWheel: true, interactiveScrollbars: true, click:true });
+	        myScroll = new IScroll('#wrapper2', { scrollbars: true, mouseWheel: true, interactiveScrollbars: true, click:true });
 	        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
 		    
