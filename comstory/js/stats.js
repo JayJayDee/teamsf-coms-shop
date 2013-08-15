@@ -93,14 +93,21 @@ function queryMonthly ( shopId )
 			var salesTotal = resultObj.sales_sum * 10000;
 			var discountTotal = parseInt((resultObj.sales_sum-resultObj.discount_sum)*10000);
 			var incomeTotal = parseInt(resultObj.discount_sum*10000);
+			var commisionTotal = parseInt(resultObj.commision_sum*10000);
 			
 			$("#month-save").html ( salesTotal );
 			$("#month-discount").html ( discountTotal );
 			$("#month-income").html ( incomeTotal );
+			$("#month-commision").html ( commisionTotal );
+			
 			$("#month-compon1").html ( resultObj.compon_1_count );
 			$("#month-compon2").html ( resultObj.compon_2_count );
 			$("#month-compon3").html ( resultObj.compon_3_count );
 			$("#month-compon4").html ( resultObj.compon_4_count );
+			
+			$("#month-commision-rate").html ( resultObj.commision_sum_rate );
+			$("#month-discount-rate").html ( resultObj.discount_sum_rate );
+			$("#month-income-rate").html ( resultObj.income_sum_rate );
 		}
 	});
 }
@@ -127,14 +134,21 @@ function queryWeekly ( shopId )
 			var salesTotal = resultObj.sales_sum * 10000;
 			var discountTotal = parseInt((resultObj.sales_sum-resultObj.discount_sum)*10000);
 			var incomeTotal = parseInt(resultObj.discount_sum*10000);
+			var commisionTotal = parseInt(resultObj.commision_sum*10000);
 			
 			$("#week-save").html ( salesTotal );
 			$("#week-discount").html ( discountTotal );
+			$("#week-commision").html ( commisionTotal );
 			$("#week-income").html ( incomeTotal );
+			
 			$("#week-compon1").html ( resultObj.compon_1_count );
 			$("#week-compon2").html ( resultObj.compon_2_count );
 			$("#week-compon3").html ( resultObj.compon_3_count );
 			$("#week-compon4").html ( resultObj.compon_4_count );
+			
+			$("#week-commision-rate").html ( resultObj.commision_sum_rate );
+			$("#week-discount-rate").html ( resultObj.discount_sum_rate );
+			$("#week-income-rate").html ( resultObj.income_sum_rate );
 		}
 	});
 }
