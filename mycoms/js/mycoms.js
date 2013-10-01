@@ -21,13 +21,11 @@ $(document).ready(function(){
         for(var i in data) {
 
             compons_html += "<div class='list-mycompon unused-compon' value='"+data[i].id+"'><div class='list-inner'>";
-            compons_html += "<p class='name'>"+data[i].price+" 만원권";
+            compons_html += "<p class='price'>"+data[i].price*1000+" 원 이상 이용시 "+(data[i].price*1000 - data[i].discount_price*1000)+" 원 할인권";            
             compons_html += "</p>";
             compons_html += "<p class='limit-date'>콤폰번호 : "+data[i].coupon_code;
             compons_html += "</p>";            
-            compons_html += "<p class='limit-date'>요청시간 : "+data[i].act_date;
-            compons_html += "</p>";
-            compons_html += "<p class='limit-date'>콤보할인 : "+data[i].combo_count+" 콤보("+data[i].discount_rate+"% 할인)";
+            compons_html += "<p class='limit-date'>요청시간 : "+data[i].act_date;            
             compons_html += "</p>";
             compons_html += "<p class='foo'><span class='combo-left unused-compon'>고객정보</span><span class='compon-code'>"+data[i].member_name+"("+data[i].member_nickname+") / H.P : "+data[i].member_phone+"</span>";
             compons_html += "</p>";            
