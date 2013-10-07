@@ -15,15 +15,15 @@ $(document).ready(function(){
     }).done(function(data){
         console.log(data);
         
-        $('.name').html(data.price+" 만원권");
+        $('.name').html(data.price*10000+" 원 이상 이용시 "+(data.price*10000 - data.discount_price*10000)+" 원 할인권");
         $('.name2').html("요청시간 : "+data.act_date);            
-        $('.price').html(data[i].price*1000+" 원 이상 이용시 "+(data[i].price*1000 - data[i].discount_price*1000)+" 원 할인권");
+        
         $('.limit-date').html("쿠폰번호 : "+data.coupon_code);        
         $('.compon-code').html(data.member_name+"("+data.member_nickname+") / H.P : "+data.member_phone);
         
 
-        myScroll = new IScroll('#wrapper', { scrollbars: true, mouseWheel: true, interactiveScrollbars: true, click:true });
-        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+        //myScroll = new IScroll('#wrapper', { scrollbars: true, mouseWheel: true, interactiveScrollbars: true, click:true });
+        //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     });
 
     $('#btn-use').on('click', function(){

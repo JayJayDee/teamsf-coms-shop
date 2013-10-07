@@ -509,16 +509,12 @@ p{
 	color: cornflowerblue;
 	border-bottom: 1px solid;
 	font-size: 15px;
-	font-weight: bold;
-	margin-left:10px;
+	font-weight: bold;	
+	margin-bottom: 5px;
 }
 .list-mycompon .price{
 	font-size: 13px;
-	line-height: 20px;
-	margin-left:10px;
-}
-.list-mycompon .limit-date{
-	margin-left:10px;
+	line-height: 20px;	
 }
 .list-mycompon .combo-left{
 	padding: 3px 5px;
