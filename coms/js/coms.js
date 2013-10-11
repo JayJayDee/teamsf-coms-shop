@@ -30,7 +30,7 @@ function initAll ()
 				console.log(resultObj); 
 				$("#profile-img").attr("src",resultObj.profile_img_path);
 				
-				
+				$('#shop-name').html(resultObj.name);
 				$("#name").html(resultObj.category_name);
 				$("#location").html(resultObj.location);
 				$("#time").html(resultObj.start_time+"~"+resultObj.end_time);

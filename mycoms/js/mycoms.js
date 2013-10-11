@@ -23,6 +23,8 @@ $(document).ready(function(){
             compons_html += "<div class='list-mycompon unused-compon' value='"+data[i].id+"'><div class='list-inner'>";
             compons_html += "<p class='name'>"+data[i].price*10000+" 원 이상 이용시 "+(data[i].price*10000 - data[i].discount_price*10000)+" 원 할인권";            
             compons_html += "</p>";
+            compons_html += "<p><span class='compon-nums'>"+data[i].combo_count+"</span> 콤보 / <span class='compon-nums'>"+data[i].discount_rate+"%</span> 할인";
+            compons_html += "</p>";
             compons_html += "<p class='limit-date'>콤폰번호 : "+data[i].coupon_code;
             compons_html += "</p>";            
             compons_html += "<p class='limit-date'>요청시간 : "+data[i].act_date;            
@@ -35,7 +37,7 @@ $(document).ready(function(){
 
         $('#container').html(compons_html);
         
-        $('.list-mycompon').on('tap click', function(){
+        $('.list-mycompon').on('click', function(){
             var cId = $(this).attr('value');
 
             console.log(cId);
@@ -63,6 +65,8 @@ $(document).ready(function(){
 
             compons_html += "<div class='list-mycompon used-compon' value='"+data[i].id+"'><div class='list-inner'>";
             compons_html += "<p class='name'>"+data[i].price*10000+" 원 이상 이용시 "+(data[i].price*10000 - data[i].discount_price*10000)+" 원 할인권";            
+            compons_html += "</p>";
+            compons_html += "<p><span class='compon-nums'>"+data[i].combo_count+"</span> 콤보 / <span class='compon-nums'>"+data[i].discount_rate+"%</span> 할인";
             compons_html += "</p>";
             compons_html += "<p class='limit-date'>콤폰번호 : "+data[i].coupon_code;
             compons_html += "</p>";            

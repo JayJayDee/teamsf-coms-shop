@@ -21,13 +21,7 @@
 
 <div data-role="page" id="page-month">
     <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
-        <h1>콤스 장부</h1>        
-        <div data-role="navbar">
-        <ul>
-            <li><a data-ajax="false" href="#page-month"  class="ui-btn-active ui-state-persist">월간</a></li>
-            <li><a data-ajax="false" href="#page-year">주간</a></li>
-        </ul>
-        </div><!-- /navbar -->
+        <h1>월간 결산</h1>        
     </div><!-- /header -->
 
     <div data-role="content">        
@@ -38,25 +32,24 @@
             	<select name="month-selector" id="month-selector" data-mini="true"></select>
             </form>
         </div>      
-        <div class="area-divider"><i class="icon-arrow-right"></i> 월간 콤폰 판매 개수</div>
+        <div class="area-divider"><i class="icon-arrow-right"></i> 월간 콤폰 승인 건수</div>
         
         <div class="ui-grid-a area-padding">
-            <div class="ui-block-a"><p class="text-center">솔로콤폰 : ( <span id="month-compon1">0</span> )개</p></div>
-            <div class="ui-block-b"><p class="text-center">커플콤폰 : ( <span id="month-compon2">0</span> )개</p></div>
-            
-            <div class="ui-block-a"><p class="text-center">단체콤폰 : ( <span id="month-compon3">0</span> )개</p></div>
-            <div class="ui-block-b"><p class="text-center">단체콤폰 : ( <span id="month-compon4">0</span> )개</p></div>                
+            <div class="ui-block-a"><p class="text-center"><span id="compon1-name"></span>  : ( <span id="month-compon1">0</span> )개</p></div>
+            <div class="ui-block-b"><p class="text-center"><span id="compon2-name"></span>  : ( <span id="month-compon2">0</span> )개</p></div>
+            <div class="ui-block-a"><p class="text-center"><span id="compon3-name"></span>  : ( <span id="month-compon3">0</span> )개</p></div>
+            <div class="ui-block-b"><p class="text-center"><span id="compon4-name"></span>  : ( <span id="month-compon4">0</span> )개</p></div>                
         </div>
 
         <div class="area-divider"><i class="icon-arrow-right"></i> 월간 매출액 및 순이익</div>
         <div class="area-padding">
             <div class="area-padding well text-right">
-                <p>월간 매출액 : (<span id="month-save">0</span>)원 / 0%</p>
+                <p>월간 콤폰 이용 총액 : (<span id="month-save">0</span>)원</p>
                 <hr>                    
-                <p>콤스 수수료 : (<span id="month-commission">0</span>)원 / 0%</p>
-                <p>콤보 할인액 : (<span id="month-discount">0</span>)원 / 0%</p>
+                <p>월간 콤폰 승인 현황 : (<span id="month-commission">0</span>)건</p>
+                <p>월간 5콤보 기빙 현황 : (<span id="month-discount">0</span>)명</p>
                 <hr>
-                <p>월간 순수익 : (<span id="month-income">0</span>)원 / 0%</p>                
+                <p>월간 고객 커넥팅 수수료 : (<span id="month-income">0</span>)원</p>                
             </div>
         </div>        
     </div><!-- /content -->

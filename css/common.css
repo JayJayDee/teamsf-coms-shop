@@ -563,6 +563,16 @@ p{
 	border-radius: 5px;
 }
 
+/*  compon for apply  */
+
+.compon-nums{
+	padding:2px 5px 2px 5px;
+	border-radius: 5px;
+	background-color: cornflowerblue;
+	color:white;
+	text-decoration: none;
+}
+
 
 /* Bartender CSS-plugin, Version: 1.0 
  * Last updated: 18.04.2012

@@ -1,18 +1,7 @@
 $(document).ready(function()
 {
 	var lh = new ShopLoginHandler ();
-	//lh.flushLogin();
-	
-	if ( lh.isLogged() == true )
-	{
-		lh.doLogin ( function ( result )
-		{
-			if ( resultObj.success == true ) { 
-				window.location = "./coms/index.html";
-			}
-			else { alert ( "실패! 실패사유 : " + resultObj.cause ); }
-		});
-	}
+	lh.flushLogin();
 
 	$("#btn-login").on("click", function(){
 
@@ -24,6 +13,7 @@ $(document).ready(function()
 		lh.doLogin ( function ( resultObj )
 		{
 			if ( resultObj.success == true ) { 
+				console.log(resultObj);
 				window.location = "./coms/index.html";
 			}
 			else { alert ( "실패! 실패사유 : " + resultObj.cause ); }
