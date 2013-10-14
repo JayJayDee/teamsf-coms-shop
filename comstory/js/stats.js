@@ -2,7 +2,7 @@
 var g_monthArr = null;
 var g_weekArr = null;
 
-$(document).ready ( function ()
+function initAll ()
 {
     var lh = new ShopLoginHandler ();
     var userData = lh.getLocalLoginInfo();
@@ -31,7 +31,7 @@ $(document).ready ( function ()
     
     $("#month-selector").change ( function ( e ) { queryMonthly ( userData.id ); });
     $("#week-selector").change ( function ( e ) { queryWeekly (userData.id); });
-});
+}
 
 function drawMonthSelector ( dataArr )
 {
@@ -93,14 +93,21 @@ function queryMonthly ( shopId )
 			var salesTotal = resultObj.sales_sum * 10000;
 			var discountTotal = parseInt((resultObj.sales_sum-resultObj.discount_sum)*10000);
 			var incomeTotal = parseInt(resultObj.discount_sum*10000);
+			var commissionTotal = parseInt(resultObj.commission_sum*10000);
 			
-			$("#month-save").html ( salesTotal );
-			$("#month-discount").html ( discountTotal );
-			$("#month-income").html ( incomeTotal );
+			$("#compon1-name").html(resultObj.compon_1_name);
+			$("#compon2-name").html(resultObj.compon_2_name);
+			$("#compon3-name").html(resultObj.compon_3_name);
+			$("#compon4-name").html(resultObj.compon_4_name);
 			$("#month-compon1").html ( resultObj.compon_1_count );
 			$("#month-compon2").html ( resultObj.compon_2_count );
 			$("#month-compon3").html ( resultObj.compon_3_count );
 			$("#month-compon4").html ( resultObj.compon_4_count );
+			
+			$("#month-sales-total").html ( salesTotal );
+			$("#month-ok-count").html( resultObj.compon_ok_count );
+			$("#month-commission").html ( commissionTotal );
+			$("#month-combo-5").html ( resultObj.combo_5_count );
 		}
 	});
 }
@@ -137,4 +144,9 @@ function queryWeekly ( shopId )
 			$("#week-compon4").html ( resultObj.compon_4_count );
 		}
 	});
+}
+
+function initPhoneGap ()
+{
+	document.addEventListener ( "deviceready", initAll , false );
 }
