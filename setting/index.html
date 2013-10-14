@@ -14,39 +14,35 @@
 <script type="text/javascript" src="../js/iscroll.js"></script>
 <script type="text/javascript" src="../js/params.js"></script>
 <script type="text/javascript" src="../js/coms.js"></script>
-
-
-
-<script type="text/javascript">
-
-</script>
+<script type="text/javascript" src="../cordova.js"></script>
+<script type="text/javascript" src="../js/shopLoginHandler.js"></script>
+<script type="text/javascript" src="./js/setting.js"></script>
 </head>
 <body>
-<div data-role="page">
+
+<!--SETTING PAGE MAIN-->  
+<div id="page-main" data-role="page">
     <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
         <h1>안내/설정</h1>
-        <a href="./index.html" class="ui-btn-right" data-ajax="false" data-rel="dialog">닫기</a>
+    </div>
     
-    </div><!-- /header -->
-
     <div data-role="content">
-        <div class="area-divider">이용 안내</div>
+        <div class="area-divider"><i class="icon-arrow-right"></i>이용 안내</div>
         <div class="area-padding">
             <ul data-role="listview" data-inset="true">
-                <li><a href="#">공지사항</a></li>
-                <li><a href="#">도움말</a></li>
-                <li><a href="#">안내 3</a></li>
-                <li><a href="#">안내 4</a></li>
-                <li><a href="#">안내 5</a></li>
+                <li><a href="#" class="notice-link" title="콤스 소식" category="콤스소식">콤스 소식</a></li>
+                <li><a href="#" class="notice-link" title="콤스 도움말" category="콤스도움말">콤스 도움말</a></li>
+                <li><a href="#" class="notice-link" title="상점 가맹 안내" category="상점가맹안내">상점 가맹 안내</a></li>
+                <li><a href="#" class="notice-link" title="고객 센터" category="고객센터">고객 센터</a></li>
             </ul>
         </div>
-        <div class="area-divider">이용 설정</div>
+        <div class="area-divider"><i class="icon-arrow-right"></i>이용 설정</div>
         <div class="area-padding">
             <ul data-role="listview" data-inset="true">
-                <li><a href="#">계정 설정</a></li>
-                <li><a href="#">버전 정보</a></li>
-                <li><a href="#">설정 3</a></li>
-                <li><a href="#">설정 4</a></li>                
+                <li><a href="#page-account-setting">비밀번호 설정</a></li>
+                <li><a href="#page-notification-setting">알림 설정</a></li>
+                <li><a href="#page-update-setting">업데이트</a></li>
+                <li><a href="#page-logout">로그아웃</a></li>
             </ul>
         </div>
     </div>
@@ -61,8 +57,169 @@
             </ul>
         </div>
     </div>               
-</div><!-- /page -->
+</div>
 
+
+<!--PAGE NOTICES-->  
+<div id="page-notice" data-role="page">
+    <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
+        <h1 id="notice-title">공지사항 제목</h1>
+        <a data-rel="back" class="ui-btn-right btn-custom-back" data-ajax="false" data-role="button">이전</a>
+    </div>
+    
+    <div data-role="content">
+        <div class="area-padding">
+  			<div id="notice-list" data-role="collapsible-set">
+  				<div data-role="collapsible">
+  					<h3>Section 1</h3>
+  					<p>I'm the collapsible set content for section 1.</p>
+  				</div>
+  				
+  				<div data-role="collapsible">
+  					<h3>Section 2</h3>
+  					<p>I'm the collapsible set content for section 2.</p>
+  				</div>
+  			</div>
+  		</div>
+    </div>
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about"  class="ui-btn-active">설정</a></li>
+            </ul>
+        </div>
+    </div>               
+</div>
+
+
+<!--PAGE ACCOUNT-SETTING-->  
+<div id="page-account-setting" data-role="page">
+    <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
+        <h1>비밀번호 설정</h1>
+        <a data-rel="back" class="ui-btn-right btn-custom-back" data-ajax="false" data-role="button">이전</a>
+    </div>
+    
+    <div data-role="content">
+   		<div class="area-divider"><i class="icon-arrow-right"></i>비밀번호 변경</div>
+   		<div class="area-padding">
+   			<div class="row">
+               	<div class="span area-label">비밀번호 입력</div>
+               	<div class="span area-input"><input id="edit-pw" type="password" placeholder="비밀번호 입력"></div>
+           	</div>
+           	<div class="row">
+               	<div class="span area-label">비밀번호 확인</div>
+               	<div class="span area-input"><input id="edit-pw-confirm" type="password" placeholder="비밀번호 재 입력"></div>
+           	</div>
+   		</div>
+   		<div class="ui-grid-a">
+               <div class="ui-block-a"><a id="btn-account-modify" href="#" data-role="button" data-theme="b">변경완료</a></div>
+               <div class="ui-block-b"><a href="./index.html" data-role="button">취소</a></div>
+       	</div>
+    </div>
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about"  class="ui-btn-active">설정</a></li>
+            </ul>
+        </div>
+    </div>               
+</div>
+
+
+<!--PAGE NOTIFICATION-SETTING-->  
+<div id="page-notification-setting" data-role="page">
+    <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
+        <h1>알림 설정</h1>
+        <a data-rel="back" class="ui-btn-right btn-custom-back" data-ajax="false" data-role="button">이전</a>
+    </div>
+    
+    <div data-role="content">
+    </div>
+    
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about"  class="ui-btn-active">설정</a></li>
+            </ul>
+        </div>
+    </div>               
+</div>
+
+
+
+<!--PAGE UPDATE-SETTING-->  
+<div id="page-update-setting" data-role="page">
+    <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
+        <h1>업데이트 설정</h1>
+        <a data-rel="back" class="ui-btn-right btn-custom-back" data-ajax="false" data-role="button">이전</a>
+    </div>
+    
+    <div data-role="content">
+    </div>
+    
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about"  class="ui-btn-active">설정</a></li>
+            </ul>
+        </div>
+    </div>               
+</div>
+
+
+
+
+<!--PAGE LOGOUT-SETTING-->  
+<div id="page-logout" data-role="page">
+    <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
+        <h1>로그아웃</h1>
+        <a data-rel="back" class="ui-btn-right btn-custom-back" data-ajax="false" data-role="button">이전</a>
+    </div>
+    
+    <div data-role="content">
+    	<div class="area-setting">
+   			<div class="area-padding">
+   				로그아웃 하시려면 아래 버튼을 클릭하세요
+   			</div>
+   			
+   			<div class="ui-grid-a">
+               	<div class="ui-block-a"><a id="btn-logout" href="#" data-role="button" data-theme="b">로그아웃 하기</a></div>
+               	<div class="ui-block-b"><a href="./index.html" data-role="button">취소</a></div>
+       		</div>
+   		</div>
+    </div>
+    
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about"  class="ui-btn-active">설정</a></li>
+            </ul>
+        </div>
+    </div>               
+</div>
+
+
+<script type="text/javascript">initPhoneGap();</script>
 </body>
 </html>
 
