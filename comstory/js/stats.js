@@ -23,10 +23,9 @@ function initAll ()
     	drawWeekSelector ( g_weekArr );
     	
     	queryMonthly ( userData.id );
-    	queryWeekly ( userData.id );
-    	
-    	myScroll = new IScroll('#wrapper', { scrollbars: true, mouseWheel: true, interactiveScrollbars: true, click:true });
-        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    	//queryWeekly ( userData.id );
+    	//myScroll = new IScroll('#wrapper', { scrollbars: true, mouseWheel: true, interactiveScrollbars: true, click:true });
+        //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     });
     
     $("#month-selector").change ( function ( e ) { queryMonthly ( userData.id ); });
@@ -89,7 +88,7 @@ function queryMonthly ( shopId )
 		type:"post",
 		data:param,
 		success:function ( resultObj )
-		{
+		{	
 			var salesTotal = resultObj.sales_sum * 10000;
 			var discountTotal = parseInt((resultObj.sales_sum-resultObj.discount_sum)*10000);
 			var incomeTotal = parseInt(resultObj.discount_sum*10000);

@@ -39,13 +39,9 @@ $(document).ready(function(){
         
         $('.list-mycompon').on('click', function(){
             var cId = $(this).attr('value');
-
             console.log(cId);
-
             window.location = "./detail_compon.html?cId="+cId;
-            
-        })
-	    
+        });
     });
 	
 
@@ -84,4 +80,9 @@ $(document).ready(function(){
 			
 	    });
 	});
-})
+});
+
+function initPhoneGap ()
+{
+	
+}
