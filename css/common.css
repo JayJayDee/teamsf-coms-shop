@@ -42,7 +42,24 @@ p{
 	background: linear-gradient(to bottom,  rgb(248,248,248) 0%,rgb(248,248,248) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgb(248,248,248)', endColorstr='rgb(248,248,248)',GradientType=0 ); /* IE6-9 */	
 }
+.month-result .title{
+	text-align: left;
+	width: 100%;
+}
+.month-result .num{
+	text-align: right;
+}
+.month-result .num span,
+.compon-nums {
+	background-color: rgb(84,168,219);
+	padding: 0px 3px 0px 3px ;
+	border-radius: 4px;
+	margin-right: 3px;
+	color:white;
+	text-shadow: none;
+	font-size: 13px;
 
+}	
 .row::before, .row::after{
 	display: table;
 	line-height: 0;
@@ -598,16 +615,6 @@ p{
 .well {
 	border: 1px solid #000;
 	border-radius: 5px;
-}
-
-/*  compon for apply  */
-
-.compon-nums{
-	padding:2px 5px 2px 5px;
-	border-radius: 5px;
-	background-color: cornflowerblue;
-	color:white;
-	text-decoration: none;
 }
 
 
