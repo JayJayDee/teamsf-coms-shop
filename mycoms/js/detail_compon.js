@@ -15,7 +15,7 @@ $(document).ready(function(){
     }).done(function(data){
         console.log(data);
         
-        $('.name').html(data.price*10000+" 원 이상 이용시 "+(data.price*10000 - data.discount_price*10000)+" 원 할인권");
+        $('.name').html(commaNum(parseInt(data.price*10000))+"원 이상 이용시 "+commaNum(parseInt(data.price*10000 - data.discount_price*10000))+"원 할인권");
         $('.name2').html("요청시간 : "+data.act_date);            
         
         $('.limit-date').html("쿠폰번호 : "+data.coupon_code);        
