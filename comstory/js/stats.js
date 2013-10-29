@@ -20,7 +20,7 @@ function initAll ()
     	g_monthArr = resultObj.months;
     	
     	drawMonthSelector ( g_monthArr );
-    	drawWeekSelector ( g_weekArr );
+    	//drawWeekSelector ( g_weekArr );
     	
     	queryMonthly ( userData.id );
     	//queryWeekly ( userData.id );
