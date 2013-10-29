@@ -7,10 +7,59 @@ p{
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
-.ui-mobile .ui-page {
-	min-height: none !important;
+.ui-btn.ui-btn-right {
+	border:none;
+	border-radius: 0px;
 }
+.ui-btn.ui-btn-right i{
+	color:white;
+	text-decoration: none;
+	text-shadow:none;
+}
+.ui-page .ui-header .ui-btn.ui-btn-right .ui-btn-inner {
+    color      : black; 
+    text-decoration: none;
+	text-shadow:none;   
+	background: rgb(84,168,219); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgb(84,168,219) 0%, rgb(84,168,219) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(84,168,219)), color-stop(100%,rgb(84,168,219))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgb(84,168,219) 0%,rgb(84,168,219) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgb(84,168,219) 0%,rgb(84,168,219) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgb(84,168,219) 0%,rgb(84,168,219) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgb(84,168,219) 0%,rgb(84,168,219) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgb(84,168,219)', endColorstr='rgb(84,168,219)',GradientType=0 ); /* IE6-9 */
+}
+.ui-btn-active,  .ui-btn-active:hover, .ui-btn-active:visited{
+	text-decoration: none;
+	text-shadow:none;
+	color: black; 
+	background: rgb(248,248,248); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgb(248,248,248) 0%, rgb(248,248,248) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(248,248,248)), color-stop(100%,rgb(248,248,248))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgb(248,248,248) 0%,rgb(248,248,248) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgb(248,248,248) 0%,rgb(248,248,248) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgb(248,248,248) 0%,rgb(248,248,248) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgb(248,248,248) 0%,rgb(248,248,248) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgb(248,248,248)', endColorstr='rgb(248,248,248)',GradientType=0 ); /* IE6-9 */	
+}
+.month-result .title{
+	text-align: left;
+	width: 100%;
+}
+.month-result .num{
+	text-align: right;
+}
+.month-result .num span,
+.compon-nums {
+	background-color: rgb(84,168,219);
+	padding: 0px 3px 0px 3px ;
+	border-radius: 4px;
+	margin-right: 3px;
+	color:white;
+	text-shadow: none;
+	font-size: 13px;
 
+}	
 .row::before, .row::after{
 	display: table;
 	line-height: 0;
@@ -21,6 +70,9 @@ p{
 }
 [class*="span"]{
 	float:left;
+}
+.text-center {
+	text-align: left;
 }
 .text-center {
 	text-align: center;
@@ -58,23 +110,25 @@ p{
 	padding-bottom:0px !important;
 }
 
+
 .menu1-header {
 	background-size: 100% auto;
-	background-color: #B1E6E6;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#B1E6E6),to(#B1E6E6));
-	background-image: -webkit-linear-gradient(#B1E6E6,#B1E6E6);
-	background-image: -moz-linear-gradient(#B1E6E6,#B1E6E6);
-	background-image: -ms-linear-gradient(#B1E6E6,#B1E6E6);
-	background-image: -o-linear-gradient(#B1E6E6,#B1E6E6);
-	background-image: linear-gradient(#B1E6E6,#B1E6E6)
+	background-color: rgb(84,168,219);
+	background-image: -webkit-gradient(linear,left top,left bottom,from(rgb(84,168,219)),to(rgb(84,168,219)));
+	background-image: -webkit-linear-gradient(rgb(84,168,219),rgb(84,168,219));
+	background-image: -moz-linear-gradient(rgb(84,168,219),rgb(84,168,219));
+	background-image: -ms-linear-gradient(rgb(84,168,219),rgb(84,168,219));
+	background-image: -o-linear-gradient(rgb(84,168,219),rgb(84,168,219));
+	background-image: linear-gradient(rgb(84,168,219),rgb(84,168,219))
 }
 .ui-header .ui-title, .ui-footer .ui-title{
 	margin: 0.3em 16% 0.3em
 }
 .menu1-header h1{
-	color: #000;
-	text-shadow:1px 1px 2px #fff;	
+	color: #fff;
+	text-decoration: none;
 	font-size: 23px !important;
+	text-shadow:none
 }
 #header-coms{
 	background-image: linear-gradient(bottom, rgb(194,194,194) 0%, rgb(235,235,235) 54%);
@@ -561,16 +615,6 @@ p{
 .well {
 	border: 1px solid #000;
 	border-radius: 5px;
-}
-
-/*  compon for apply  */
-
-.compon-nums{
-	padding:2px 5px 2px 5px;
-	border-radius: 5px;
-	background-color: cornflowerblue;
-	color:white;
-	text-decoration: none;
 }
 
 
