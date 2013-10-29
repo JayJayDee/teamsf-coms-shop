@@ -16,20 +16,20 @@ function initAll ()
         data: params
     }).done(function(resultObj)
     {   
-        g_weekArr = resultObj.weeks;
+    	console.log(resultObj);
     	g_monthArr = resultObj.months;
     	
     	drawMonthSelector ( g_monthArr );
+<<<<<<< HEAD
     	//drawWeekSelector ( g_weekArr );
+=======
+>>>>>>> 6f76a4725f677dfd5ecfa69ceb4b00aab69b8d96
     	
     	queryMonthly ( userData.id );
-    	//queryWeekly ( userData.id );
-    	//myScroll = new IScroll('#wrapper', { scrollbars: true, mouseWheel: true, interactiveScrollbars: true, click:true });
-        //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     });
     
     $("#month-selector").change ( function ( e ) { queryMonthly ( userData.id ); });
-    $("#week-selector").change ( function ( e ) { queryWeekly (userData.id); });
+    
 }
 
 function drawMonthSelector ( dataArr )
@@ -51,24 +51,6 @@ function drawMonthSelector ( dataArr )
 	}
 }
 
-function drawWeekSelector ( dataArr )
-{
-	var i;
-	var weekItemExpr = ""; var weekSelectedIdx = -1;
-	for ( i = 0 ; i < dataArr.length ; i++ )
-	{
-		weekItemExpr += 
-			"<option value=\"" + i + "\">" +
-				dataArr[i].start_expr + " ~ " + dataArr[i].end_expr +
-			"</option>";
-		if ( dataArr[i].now == true ) { weekSelectedIdx = i; }
-	}
-	$("#week-selector").html(weekItemExpr);
-	if ( weekSelectedIdx != -1 ) 
-	{ 
-		$("#week-selector").val(weekSelectedIdx); 
-	}
-}
 
 function queryMonthly ( shopId )
 {
@@ -89,10 +71,9 @@ function queryMonthly ( shopId )
 		data:param,
 		success:function ( resultObj )
 		{	
-			var salesTotal = resultObj.sales_sum * 10000;
-			var discountTotal = parseInt((resultObj.sales_sum-resultObj.discount_sum)*10000);
-			var incomeTotal = parseInt(resultObj.discount_sum*10000);
-			var commissionTotal = parseInt(resultObj.commission_sum*10000);
+			var salesTotal = commaNum(parseInt(resultObj.ok_sum * 10000));
+			var discountTotal = commaNum(parseInt((resultObj.ok_sum - resultObj.commission_sum)*10000));			
+			var commissionTotal = commaNum(parseInt(resultObj.commission_sum * 10000));
 			
 			$("#compon1-name").html(resultObj.compon_1_name);
 			$("#compon2-name").html(resultObj.compon_2_name);
@@ -103,7 +84,7 @@ function queryMonthly ( shopId )
 			$("#month-compon3").html ( resultObj.compon_3_count );
 			$("#month-compon4").html ( resultObj.compon_4_count );
 			
-			$("#month-sales-total").html ( salesTotal );
+			$("#month-income").html ( salesTotal );
 			$("#month-ok-count").html( resultObj.compon_ok_count );
 			$("#month-commission").html ( commissionTotal );
 			$("#month-combo-5").html ( resultObj.combo_5_count );
