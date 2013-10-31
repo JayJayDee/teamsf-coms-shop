@@ -20,11 +20,6 @@ function initAll ()
     	g_monthArr = resultObj.months;
     	
     	drawMonthSelector ( g_monthArr );
-<<<<<<< HEAD
-    	//drawWeekSelector ( g_weekArr );
-=======
->>>>>>> 6f76a4725f677dfd5ecfa69ceb4b00aab69b8d96
-    	
     	queryMonthly ( userData.id );
     });
     

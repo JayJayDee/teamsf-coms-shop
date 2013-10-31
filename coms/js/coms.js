@@ -17,8 +17,7 @@ function initAll ()
 	{
 		sid:sid
 	};
-
-
+	
 	$.ajax ({
 		type:"post",
 		data:param,
@@ -28,7 +27,7 @@ function initAll ()
 		{
 			if ( resultObj.success == true ) { 
 				console.log(resultObj); 
-				$("#profile-img").attr("src",resultObj.profile_img_path);
+				$("#main-profile-img").attr("src",resultObj.profile_img_path);
 				
 				$('#shop-name').html(resultObj.name);
 				$("#name").html(resultObj.category_name);
@@ -43,10 +42,8 @@ function initAll ()
 				$("#giving1").html(resultObj.giving_1.giving_count);
 				$("#giving2").html(resultObj.giving_2.giving_count );
 				$("#giving3").html(resultObj.giving_3.giving_count );
-				$("#giving4").html(resultObj.giving_4.giving_count );
-				
+				$("#giving4").html(resultObj.giving_4.giving_count );			
 			}
-		
 		}
 	});
 	
@@ -278,7 +275,7 @@ function initAll ()
 			data:{sid:sid}
 		}).done ( function ( resultObj )
 		{
-			$("#profile-img").attr("src",resultObj.profile_img_path)
+			$("#shop-profile-img").attr("src",resultObj.profile_img_path)
 			.attr("imgid",resultObj.profile_img_id);
 			
 			$("#shop-close").val(resultObj.closed);
