@@ -17,7 +17,8 @@ function initAll ()
 	{
 		sid:sid
 	};
-	
+
+
 	$.ajax ({
 		type:"post",
 		data:param,
@@ -27,7 +28,7 @@ function initAll ()
 		{
 			if ( resultObj.success == true ) { 
 				console.log(resultObj); 
-				$("#main-profile-img").attr("src",resultObj.profile_img_path);
+				$("#profile-img").attr("src",resultObj.profile_img_path);
 				
 				$('#shop-name').html(resultObj.name);
 				$("#name").html(resultObj.category_name);
@@ -42,8 +43,10 @@ function initAll ()
 				$("#giving1").html(resultObj.giving_1.giving_count);
 				$("#giving2").html(resultObj.giving_2.giving_count );
 				$("#giving3").html(resultObj.giving_3.giving_count );
-				$("#giving4").html(resultObj.giving_4.giving_count );			
+				$("#giving4").html(resultObj.giving_4.giving_count );
+				
 			}
+		
 		}
 	});
 	
@@ -275,7 +278,7 @@ function initAll ()
 			data:{sid:sid}
 		}).done ( function ( resultObj )
 		{
-			$("#shop-profile-img").attr("src",resultObj.profile_img_path)
+			$("#profile-img").attr("src",resultObj.profile_img_path)
 			.attr("imgid",resultObj.profile_img_id);
 			
 			$("#shop-close").val(resultObj.closed);
@@ -364,6 +367,11 @@ function initAll ()
 	    }).done(function(compons){
 	        console.log(compons);
 	        
+	        $("#compon1-name").html(compons.compon_1_name);
+	        $("#compon2-name").html(compons.compon_2_name);
+	        $("#compon3-name").html(compons.compon_3_name);
+	        $("#compon4-name").html(compons.compon_4_name);
+
 	        $("#compon1").val(compons.compon_1).selectmenu("refresh");
 	        $("#compon2").val(compons.compon_2).selectmenu("refresh");
 	        $("#compon3").val(compons.compon_3).selectmenu("refresh");
