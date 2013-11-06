@@ -426,7 +426,7 @@ p{
 
 .area-coms-friends h1{
 	color: #428bca;
-	margin-top: 200px;
+	margin-top: 100px;
 }
 
 .nav-comstory{
@@ -546,7 +546,7 @@ p{
 .list-mycompon .list-inner {
 	background-color: #fff;
 	border-radius: 5px;
-	padding:10px;
+	padding:5px 5px 10px 5px;
 }
 .list-mycompon .used-compon {
 
