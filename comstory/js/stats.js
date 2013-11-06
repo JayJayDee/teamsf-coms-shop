@@ -20,6 +20,7 @@ function initAll ()
     	g_monthArr = resultObj.months;
     	
     	drawMonthSelector ( g_monthArr );
+    	
     	queryMonthly ( userData.id );
     });
     
@@ -66,8 +67,8 @@ function queryMonthly ( shopId )
 		data:param,
 		success:function ( resultObj )
 		{	
-			var salesTotal = commaNum(parseInt(resultObj.ok_sum * 10000));
-			var discountTotal = commaNum(parseInt((resultObj.ok_sum - resultObj.commission_sum)*10000));			
+			var salesTotal = commaNum(parseInt(resultObj.sales_sum * 10000));
+			var discountTotal = commaNum(parseInt((resultObj.sales_sum - resultObj.commission_sum)*10000));			
 			var commissionTotal = commaNum(parseInt(resultObj.commission_sum * 10000));
 			
 			$("#compon1-name").html(resultObj.compon_1_name);

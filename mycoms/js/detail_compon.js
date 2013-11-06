@@ -36,7 +36,9 @@ $(document).ready(function(){
             url: url,
             data: params        
         }).done(function(data){
-            alert("승인 완료");
+            if (confirm("사용 승인을 하시겠습니까?") == true){
+                window.location.replace("./index.html"); 
+            }
         });
     });
 
