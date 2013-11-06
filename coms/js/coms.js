@@ -9,15 +9,15 @@ function initAll ()
 
 	var sid = shop.id;
 	
-	
 	g_iu = new ImageUploader ();
 	g_iu.setNavigatorObj ( navigator );
+	
+	bindBackButton ();
 
 	var param = 
 	{
 		sid:sid
 	};
-
 
 	$.ajax ({
 		type:"post",
@@ -26,7 +26,8 @@ function initAll ()
 		url:"http://teamsf.co.kr/~coms/shop_manage_info_show.php",
 		success:function ( resultObj )
 		{
-			if ( resultObj.success == true ) { 
+			if ( resultObj.success == true ) 
+			{ 
 				console.log(resultObj); 
 				$("#profile-img").attr("src",resultObj.profile_img_path);
 				
@@ -43,10 +44,8 @@ function initAll ()
 				$("#giving1").html(resultObj.giving_1.giving_count);
 				$("#giving2").html(resultObj.giving_2.giving_count );
 				$("#giving3").html(resultObj.giving_3.giving_count );
-				$("#giving4").html(resultObj.giving_4.giving_count );
-				
+				$("#giving4").html(resultObj.giving_4.giving_count );	
 			}
-		
 		}
 	});
 	
@@ -70,8 +69,15 @@ function initAll ()
 			url:"http://teamsf.co.kr/~coms/shop_setting_combo_modify.php",
 			success:function ( resultObj )
 			{
-				if ( resultObj.success == true ) { alert ( "콤보 할인율 변경 성공!" ); }
-				else { alert ( "콤보 할인율 변경 실패 : " + resultObj.cause ); }
+				if ( resultObj.success == true ) 
+				{ 
+					doAlert ( "콤보 할인율 변경 성공!" , "콤보 할인율 설정" , function () {} );
+					$.mobile.changePage ( "#page-menu-select" );
+				}
+				else 
+				{ 
+					doAlert ( resultObj.cause , "콤보 할인율 변경 실패" , function () {} ); 
+				}
 			}
 		});
 	});
@@ -94,8 +100,15 @@ function initAll ()
 			url:"http://teamsf.co.kr/~coms/shop_setting_compon_modify.php",
 			success:function ( resultObj )
 			{
-				if ( resultObj.success == true ) { alert("변경 성공"); }
-				else { alert ( "변경 실패 : " + resultObj.cause ); }
+				if ( resultObj.success == true ) 
+				{ 
+					doAlert ( "콤폰 가격 변경 변경 성공!" , "콤폰 가격 설정" , function () {} );
+					$.mobile.changePage ( "#page-menu-select" );
+				}
+				else 
+				{ 
+					doAlert ( resultObj.cause , "변경 실패" , function () {} );
+				}
 			}
 		});
 	});
@@ -119,7 +132,7 @@ function initAll ()
 					g_isOpen = false;
 					if ( result.success == false ) 
 					{ 
-						alert ( "프로필 이미지 변경 실패 : " + result.cause );
+						doAlert ( result.cause  , "이미지 변경 실패" , function () {} );
 						return;
 					}
 					
@@ -161,7 +174,7 @@ function initAll ()
 					g_isOpen = false;
 					if ( result.success == false ) 
 					{ 
-						alert ( "메뉴 이미지 변경 실패 : " + result.cause );
+						doAlert ( result.cause , "변경 실패" , function () {} );
 						return;
 					}
 					
@@ -189,8 +202,15 @@ function initAll ()
 			data:param	
 		}).done ( function ( resultObj )
 		{
-			if ( resultObj.success == true ) { alert ( "메뉴 이미지 변경 성공!" ); }
-			else { alert("메뉴 이미지 변경 실패 : " + resultObj.cause ); }
+			if ( resultObj.success == true ) 
+			{
+				doAlert ( "메뉴 이미지 변경 성공!" , "메뉴 이미지 설정" , function () {} );
+				$.mobile.changePage ( "#page-menu-select" );
+			}
+			else 
+			{
+				doAlert ( resultObj.cause , "이미지 설정 실패" , function () {} ); 
+			}
 		});
 	});
 	
@@ -215,8 +235,8 @@ function initAll ()
 		{
 			if ( resultObj.success == true )
 			{
-				alert ( "입점기한 연장 완료!" );
-				window.location="./index.html";
+				doAlert ( "입점기한 연장에 성공하였습니다." , "입점기한 연장" , function () {} );
+				$.mobile.changePage ( "#page-menu-select" );
 			}
 		});
 	});
@@ -350,8 +370,15 @@ function initAll ()
 		}).done ( function ( resultObj )
 		{
 			console.log ( resultObj.query );
-			if ( resultObj.success == true ) { alert ( "정보 변경 성공!" ); }
-			else { alert ( "정보 변경 실패 : " + resultObj.cause ); }
+			if ( resultObj.success == true ) 
+			{
+				doAlert ( "정보 변경 성공!" , "상점 프로필 관리" , function () {} );
+				$.mobile.changePage ( "#page-menu-select" );
+			}
+			else 
+			{ 
+				doAlert ( resultObj.cause , "상점 프로필 관리" , function () {} );
+			}
 		});
 	});
 
@@ -397,6 +424,30 @@ function initAll ()
 	        $("#combo5").val(compons.combo_5).selectmenu("refresh");
 	    });
 	});
+}
+
+function doAlert ( msg , title , callbackFunction )
+{
+	navigator.notification.alert ( msg , callbackFunction , title , "확인" );
+}
+
+function bindBackButton ()
+{
+	var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
+	if ( deviceType != "Android" ) { return; }
+
+	navigator.app.overrideBackbutton(true);
+	document.addEventListener("backbutton", function ()
+	{
+		if ( g_isOpen == true ) { return; }
+    	g_isOpen = true;
+    	
+		navigator.notification.confirm ( "콤스를 종료하시겠습니까?", function ( btnIndex )
+    	{	
+    		g_isOpen = false;
+    		if ( btnIndex == 1 ) { navigator.app.exitApp(); }
+    	}, "콤스 종료" ,"확인,취소" );
+	}, true );
 }
 
 function initPhonegap ()

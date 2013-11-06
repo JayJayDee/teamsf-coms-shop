@@ -1,11 +1,15 @@
-$(document).ready(function(){
+var g_isOpen = false;
+
+function initAll () 
+{
     var lh = new ShopLoginHandler ();
     var userData = lh.getLocalLoginInfo();
     var pid = $.getUrlVar('cId');
 
     var url = "http://teamsf.co.kr/~coms/shop_compon_ok_info.php";
-
     var params = {pid:pid};
+    
+    bindBackButton ();
 
     $.ajax({
         type: 'post',
@@ -41,8 +45,29 @@ $(document).ready(function(){
             }
         });
     });
+}
 
-    
-    
+function bindBackButton ()
+{
+	var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
+	if ( deviceType != "Android" ) { return; }
 
-})
+	navigator.app.overrideBackbutton(true);
+	document.addEventListener("backbutton", function ()
+	{
+		if ( g_isOpen == true ) { return; }
+    	g_isOpen = true;
+    	
+		navigator.notification.confirm ( "콤스를 종료하시겠습니까?", function ( btnIndex )
+    	{	
+    		g_isOpen = false;
+    		if ( btnIndex == 1 ) { navigator.app.exitApp(); }
+    	}, "콤스 종료" ,"확인,취소" );
+	}, true );
+}
+
+function initPhoneGap ()
+{
+	document.addEventListener ( "deviceready", initAll , false );
+}
+

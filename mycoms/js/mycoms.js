@@ -1,4 +1,7 @@
-$(document).ready(function(){
+var g_isOpen = false;
+
+function initAll () 
+{
 	var lh = new ShopLoginHandler ();
 	var shop = lh.getLocalLoginInfo();
 	console.log(shop);
@@ -6,6 +9,8 @@ $(document).ready(function(){
 
 	var url = "http://teamsf.co.kr/~coms/shop_accept_compon_list_show.php";
 	var params = {sid:sid, accepted:"false"};
+	
+	bindBackButton ();
 
 	$.ajax({
         type: 'post',
@@ -13,11 +18,7 @@ $(document).ready(function(){
         url: url,
         data: params        
     }).done(function(data){
-        console.log(data);
-
-
         var compons_html = "<div class='area-padding'>";
-
         for(var i in data) {
 
             compons_html += "<div class='list-mycompon unused-compon' value='"+data[i].id+"'><div class='list-inner'>";
@@ -75,14 +76,35 @@ $(document).ready(function(){
 	        compons_html += "</div>";
 
 	        $('#container2').html(compons_html);
-	        
-		    
-			
 	    });
 	});
-});
+}
+
+function bindBackButton ()
+{
+	var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
+	if ( deviceType != "Android" ) { return; }
+
+	navigator.app.overrideBackbutton(true);
+	document.addEventListener("backbutton", function ()
+	{
+		if ( g_isOpen == true ) { return; }
+    	g_isOpen = true;
+    	
+		navigator.notification.confirm ( "콤스를 종료하시겠습니까?", function ( btnIndex )
+    	{	
+    		g_isOpen = false;
+    		if ( btnIndex == 1 ) { navigator.app.exitApp(); }
+    	}, "콤스 종료" ,"확인,취소" );
+	}, true );
+}
+
+function doAlert ( msg , title , callbackFunction )
+{
+	navigator.notification.alert ( msg , callbackFunction , title , "확인" );
+}
 
 function initPhoneGap ()
 {
-	
+	document.addEventListener ( "deviceready", initAll , false );
 }

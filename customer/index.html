@@ -14,8 +14,10 @@
 <script type="text/javascript" src="../js/iscroll.js"></script>
 <script type="text/javascript" src="../js/params.js"></script>
 <script type="text/javascript" src="../js/shopLoginHandler.js"></script>
+<script type="text/javascript" src="../cordova.js"></script>
+<script type="text/javascript" src="./js/customer.js"></script>
 </head>
-<body onload="loaded()">
+<body>
 <div data-role="page">
     <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
         <h1>콤스 고객</h1>
@@ -28,7 +30,9 @@
             <p>콤스 단골고객들을 관리하고 소통할 수 있는 CRM 서비스가 곧 찾아옵니다.</p>
         </div>
         
-    </div></div><!-- /content -->
+    </div></div>
+    </div>
+    <!-- /content -->
 
     <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
         <div data-role="navbar" data-grid="d">
@@ -42,6 +46,8 @@
         </div>
     </div>          
 </div><!-- /page -->
+
+<script type="text/javascript">initPhoneGap();</script>
 
 </body>
 </html>
