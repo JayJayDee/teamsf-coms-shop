@@ -385,15 +385,26 @@ function initAll ()
 	$( "#page-compon-price" ).on( "pagecreate", function( event ) {
 		var url = "http://teamsf.co.kr/~coms/shop_setting_compon_show.php";
 		var params = {sid:sid};
+		
+		var i; var optionExpr = "";
+		for ( i = 0 ; i < 100 ; i++ )
+		{
+			optionExpr += "<option value=\"" + (i+1) + "\">" + 
+								(i+1) + " 만원</option>";
+		}
+		
+		$("#compon1").html(optionExpr);
+		$("#compon2").html(optionExpr);
+		$("#compon3").html(optionExpr);
+		$("#compon4").html(optionExpr);
 
 		$.ajax({
 	        type: 'post',
 	        dataType: 'json',
 	        url: url,
 	        data: params        
-	    }).done(function(compons){
-	        console.log(compons);
-	        
+	    }).done(function(compons)
+	    {    
 	        $("#compon1-name").html(compons.compon_1_name);
 	        $("#compon2-name").html(compons.compon_2_name);
 	        $("#compon3-name").html(compons.compon_3_name);
@@ -408,6 +419,20 @@ function initAll ()
 
 	$( "#page-compon-discount" ).on( "pagecreate", function( event ) {
 		var url = "http://teamsf.co.kr/~coms/shop_setting_combo_show.php";
+		
+		var i; var optionExpr = "";
+		for ( i = 0 ; i < 100 ; i++ )
+		{
+			optionExpr += "<option value=\"" + (i+1) + "\">" + 
+								(i+1) + " %</option>";
+		}
+		
+		$("#combo1").html(optionExpr);
+		$("#combo2").html(optionExpr);
+		$("#combo3").html(optionExpr);
+		$("#combo4").html(optionExpr);
+		$("#combo5").html(optionExpr);
+		
 		var params = {sid:sid};
 		$.ajax({
 	        type: 'post',
