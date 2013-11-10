@@ -29,7 +29,7 @@ function initAll ()
 			if ( resultObj.success == true ) 
 			{ 
 				console.log(resultObj); 
-				$("#profile-img").attr("src",resultObj.profile_img_path);
+				$("#info-profile-img").attr("src",resultObj.profile_img_path);
 				
 				$('#shop-name').html(resultObj.name);
 				$("#name").html(resultObj.category_name);
@@ -306,18 +306,18 @@ function initAll ()
 			$("#shop-location").val(resultObj.location);
 			
 			var arrCategory = resultObj.all_category;
-			var i; var itemsExpr = ""; var selectedIdx = -1;
+			var i; var itemsExpr = ""; var selectedId = -1;
 			for ( i = 0 ; i < arrCategory.length ; i++ )
 			{
 				itemsExpr += 
 					"<option value=\"" + arrCategory[i].id + "\">" + 
 						arrCategory[i].name + 
 					"</option>";
-				if ( arrCategory[i].now == true ) { selectedIdx = i; }
+				if ( arrCategory[i].now == true ) { selectedId = arrCategory[i].id; }
 			}
 			
 			$("#shop-category-selector").html(itemsExpr)
-			.val ( selectedIdx ).selectmenu("refresh");
+			.val ( selectedId ).selectmenu("refresh");
 			
 			var startTimeArr = resultObj.start_time.split(":");
 			var endTimeArr = resultObj.end_time.split(":");
