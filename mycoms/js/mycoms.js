@@ -9,9 +9,10 @@ function initAll ()
 
 	var url = "http://teamsf.co.kr/~coms/shop_accept_compon_list_show.php";
 	var params = {sid:sid, accepted:"false"};
+	var nav = $.getUrlVar("nav");
 	
 	bindBackButton ();
-
+	
 	$.ajax({
         type: 'post',
         dataType: 'json',
@@ -78,6 +79,12 @@ function initAll ()
 	        $('#container2').html(compons_html);
 	    });
 	});
+	
+	if ( nav != null )
+	{
+		$.mobile.changePage ( "#" + nav );
+		return;
+	}
 }
 
 function bindBackButton ()

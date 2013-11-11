@@ -40,10 +40,19 @@ function initAll ()
             url: url,
             data: params        
         }).done(function(data){
-            if (confirm("사용 승인을 하시겠습니까?") == true){
-                window.location.replace("./index.html"); 
-            }
+            if ( g_isOpen == true ) { return; }
+        	g_isOpen = true;
+            navigator.notification.confirm ( "사용 승인을 하시겠습니까?", function ( btnIndex )
+            {	
+            	g_isOpen = false;
+            	if ( btnIndex == 1 ) { window.location.replace("./index.html?nav=page-used-compon"); }
+            }, "콤폰 사용 승인" ,"확인,취소" );
         });
+    });
+    
+    $("#btn-cancel").on ( "click" , function ()
+    {
+    	window.location.replace("./index.html");
     });
 }
 
