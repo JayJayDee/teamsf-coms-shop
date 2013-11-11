@@ -205,7 +205,7 @@ function initAll ()
 			if ( resultObj.success == true ) 
 			{
 				doAlert ( "메뉴 이미지 변경 성공!" , "메뉴 이미지 설정" , function () {} );
-				$.mobile.changePage ( "#page-menu-select" );
+				$.mobile.changePage ( "./index.html" );
 			}
 			else 
 			{
@@ -287,7 +287,7 @@ function initAll ()
 	});
 	
 	
-	$( "#page-profile-modify" ).on ( "pagecreate" , function (event)
+	$( "#page-profile-modify" ).on ( "pagebeforeshow" , function (event)
 	{
 		var url = "http://teamsf.co.kr/~coms/shop_manage_info_show.php";
 		
@@ -322,25 +322,25 @@ function initAll ()
 			var startTimeArr = resultObj.start_time.split(":");
 			var endTimeArr = resultObj.end_time.split(":");
 			
-			var timeStartIdx = -1; var timeEndIdx = -1;
+			var timeStartId = -1; var timeEndId = -1;
 			var timeStartExpr = ""; var timeEndExpr = "";
-			for ( i = 0 ; i < 24 ; i++ )
+			for ( i = 1 ; i <= 24 ; i++ )
 			{
-				if ( i == parseInt(startTimeArr[0]) ) { timeStartIdx = i; }
-				if ( i == parseInt(endTimeArr[0]) ) { timeEndIdx = i; }
+				if ( i == parseInt(startTimeArr[0]) ) { timeStartId = i; }
+				if ( i == parseInt(endTimeArr[0]) ) { timeEndId = i; }
 				
 				timeStartExpr += 
-					"<option value=\"" + (i+1) + "\">" +
-						(i+1) + "시" +
+					"<option value=\"" + i + "\">" +
+						i + "시" +
 					"</option>";
 				timeEndExpr += 
-					"<option value=\"" + (i+1) + "\">" +
-						(i+1) + "시" +
+					"<option value=\"" + i + "\">" +
+						i + "시" +
 					"</option>";
 			}
 			
-			$("#shop-close-time-start").html(timeStartExpr).val(timeStartIdx).selectmenu("refresh");
-			$("#shop-close-time-end").html(timeEndExpr).val(timeEndIdx).selectmenu("refresh");
+			$("#shop-close-time-start").html(timeStartExpr).val(timeStartId).selectmenu("refresh");
+			$("#shop-close-time-end").html(timeEndExpr).val(timeEndId).selectmenu("refresh");
 			
 		});
 	});
@@ -373,7 +373,7 @@ function initAll ()
 			if ( resultObj.success == true ) 
 			{
 				doAlert ( "정보 변경 성공!" , "상점 프로필 관리" , function () {} );
-				$.mobile.changePage ( "#page-menu-select" );
+				$.mobile.changePage ( "./index.html" );
 			}
 			else 
 			{ 
