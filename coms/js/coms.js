@@ -205,7 +205,7 @@ function initAll ()
 			if ( resultObj.success == true ) 
 			{
 				doAlert ( "메뉴 이미지 변경 성공!" , "메뉴 이미지 설정" , function () {} );
-				$.mobile.changePage ( "./index.html" );
+				window.location.replace("./index.html");
 			}
 			else 
 			{
@@ -373,7 +373,7 @@ function initAll ()
 			if ( resultObj.success == true ) 
 			{
 				doAlert ( "정보 변경 성공!" , "상점 프로필 관리" , function () {} );
-				$.mobile.changePage ( "./index.html" );
+				window.location.replace("./index.html");
 			}
 			else 
 			{ 

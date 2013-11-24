@@ -31,23 +31,28 @@ function initAll ()
     });
 
     $('#btn-use').on('click', function(){
-
         var url = "http://teamsf.co.kr/~coms/shop_compon_ok_proc.php";
         var params = {pid:pid}
-        $.ajax({
-            type: 'post',
-            dataType: 'json',
-            url: url,
-            data: params        
-        }).done(function(data){
-            if ( g_isOpen == true ) { return; }
-        	g_isOpen = true;
-            navigator.notification.confirm ( "사용 승인을 하시겠습니까?", function ( btnIndex )
-            {	
-            	g_isOpen = false;
-            	if ( btnIndex == 1 ) { window.location.replace("./index.html?nav=page-used-compon"); }
-            }, "콤폰 사용 승인" ,"확인,취소" );
-        });
+        
+        navigator.notification.confirm ( "사용 승인을 하시겠습니까?", function ( btnIndex )
+        {   
+            g_isOpen = false;
+            
+            if ( btnIndex == 1 ) {
+                $.ajax({
+                    type: 'post',
+                    dataType: 'json',
+                    url: url,
+                    data: params        
+                    }).done(function(data){
+                        if ( g_isOpen == true ) { return; }
+                        g_isOpen = true;
+                        window.location.replace("./index.html?nav=page-used-compon");
+                });
+            }
+        }, "콤폰 사용 승인" ,"확인,취소" );
+
+        
     });
     
     $("#btn-cancel").on ( "click" , function ()
