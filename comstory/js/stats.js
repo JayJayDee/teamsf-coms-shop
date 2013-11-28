@@ -94,9 +94,9 @@ function queryMonthly ( shopId )
 		data:param,
 		success:function ( resultObj )
 		{	
-			var salesTotal = commaNum(parseInt(resultObj.sales_sum * 10000));
-			var discountTotal = commaNum(parseInt((resultObj.sales_sum - resultObj.commission_sum)*10000));			
-			var commissionTotal = commaNum(parseInt(resultObj.commission_sum * 10000));
+			var salesTotal = commaNum(Math.round(resultObj.sales_sum * 10000));
+			var discountTotal = commaNum(Math.round((resultObj.sales_sum - resultObj.commission_sum)*10000));
+			var commissionTotal = commaNum(Math.round(resultObj.commission_sum * 10000));
 			
 			$("#compon1-name").html(resultObj.compon_1_name);
 			$("#compon2-name").html(resultObj.compon_2_name);

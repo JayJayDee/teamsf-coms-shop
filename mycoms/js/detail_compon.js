@@ -47,7 +47,7 @@ function initAll ()
                     }).done(function(data){
                         if ( g_isOpen == true ) { return; }
                         g_isOpen = true;
-                        window.location.replace("./index.html?nav=page-used-compon");
+                        window.location.replace("./index.html#page-used-compon");
                 });
             }
         }, "콤폰 사용 승인" ,"확인,취소" );
