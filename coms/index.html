@@ -86,6 +86,7 @@
                 <a href="#page-compon-price" data-role="button">콤폰 발급 유형(등급)</a>
                 <a href="#page-compon-discount" data-role="button">콤보 할인율</a>
                 <a href="#page-service-duration" data-role="button">콤보 서비스 기한</a>
+                <a href="#page-combo-service" data-role="button">콤보 혜택 서비스</a>
             </ul>
         </div>
     </div>
@@ -487,6 +488,73 @@
             </ul>
         </div>
     </div>               
+</div><!-- /page -->
+
+<div data-role="page" id="page-combo-service">
+    <div data-role="header" class="menu1-header" data-position="fixed" data-tap-toggle="false">
+        <h1>메뉴 사진 변경</h1>
+        <a href="./index.html" class="ui-btn-right" data-ajax="false" data-rel="dialog"><i class="icon-remove"></i></a>
+    </div><!-- /header -->
+    
+    <div data-role="content">
+        <form>
+            <div>
+                <span>1콤보 달성 혜택</span>
+                <select name="slider-combo1" id="slider-combo1" data-role="slider" data-mini="true">
+                    <option value="off" selected="selected">No</option>
+                    <option value="on">Yes</option>
+                </select>
+
+                <select name="select-combo1-type" id="select-combo1-type" data-mini="true">
+                    <option selected="selected">보상템 유형을 선택하세요.</option>
+                    <option value="0">공짜메뉴</option>
+                    <option value="1">내맘대로</option>
+                    <option value="2">랜덤</option>
+                    <option value="3">1+1</option>
+                    <option value="4">콤보세트</option>
+                    <option value="5">쿠폰</option>
+                    <option value="6">사은품</option>
+                    <option value="7">이벤트</option>
+                    <option value="8">비밀이야</option>                    
+                </select>
+                <input type="text" name="text-combo1-desc" id="text-combo1-desc"  placeholder="제공할 혜택의 내용을 입력하세요!"  data-mini="true">
+            </div>
+            <div>
+                <span>5콤보 달성 혜택</span>
+                <select name="slider-combo5" id="slider-combo5" data-role="slider" data-mini="true">
+                    <option value="off" selected="selected">No</option>
+                    <option value="on">Yes</option>
+                </select>
+
+                <select name="select-combo5-type" id="select-combo5-type" data-mini="true">
+                    <option selected="selected">보상템 유형을 선택하세요.</option>
+                    <option value="0">공짜메뉴</option>
+                    <option value="1">내맘대로</option>
+                    <option value="2">랜덤</option>
+                    <option value="3">1+1</option>
+                    <option value="4">콤보세트</option>
+                    <option value="5">쿠폰</option>
+                    <option value="6">사은품</option>
+                    <option value="7">이벤트</option>
+                    <option value="8">비밀이야</option>                    
+                </select>
+                <input type="text" name="text-combo5-desc" id="text-combo5-desc" placeholder="제공할 혜택의 내용을 입력하세요!" data-mini="true">
+            </div>
+            <a id="btn-combo-service-modify" data-role="button" data-theme="b">콤보 서비스 변경</a>
+        </form>
+    </div>
+    
+    <div data-role="footer" data-id="mainFooter" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" data-grid="d">
+            <ul class="apple-navbar-ui comboSprite">                
+                <li><a href="../coms/index.html" class="ui-btn-active" data-icon="brands" data-ajax="false">상점관리</a></li>
+                <li><a href="../mycoms/index.html" data-icon="features" data-ajax="false">승인관리</a></li>
+                <li><a href="../comstory/index.html" data-icon="contact" data-ajax="false">콤스장부</a></li>
+                <li><a href="../customer/index.html" data-icon="fees" data-ajax="false" >콤스고객</a></li>
+                <li><a href="../setting/index.html" data-ajax="false" data-icon="about">설정</a></li>
+            </ul>
+        </div>
+    </div>    
 </div><!-- /page -->
 
 <script type="text/javascript">initPhonegap();</script>

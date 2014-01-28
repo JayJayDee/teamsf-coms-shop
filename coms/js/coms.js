@@ -449,6 +449,69 @@ function initAll ()
 	        $("#combo5").val(compons.combo_5).selectmenu("refresh");
 	    });
 	});
+
+	$("#page-combo-service").on("pagecreate", function(event){
+		var url = "http://teamsf.co.kr/~coms/shop_benefit_list_show.php";
+		var params = {sid:sid};
+
+		$.ajax({
+			type:"post",
+			dataType:"json",
+			url:url,
+			data:params
+		}).done(function(combo){
+			console.log(combo);
+			var i;
+
+			for(i=0; i< combo.length; i++){
+
+				var c = combo[i];
+				console.log(c);
+				$("#select-combo"+c.combo_count+"-type").val(c.benefit_type).selectmenu("refresh");
+				$("#text-combo"+c.combo_count+"-desc").val(c.benefit_desc);
+				$("#slider-combo"+c.combo_count).val("on").slider("refresh");
+			}
+		});
+	});
+
+	$( "#btn-combo-service-modify" ).on ( "click" , function ()	
+	{
+		var c1_type = $("#select-combo1-type").val();
+		var c1_desc = $("#text-combo1-desc").val();
+		var c1_on = ( $("#slider-combo1").val()=="on" ? 1 : 0 );
+		var c5_type = $("#select-combo5-type").val();
+		var c5_desc = $("#text-combo5-desc").val();
+		var c5_on = ( $("#slider-combo5").val()=="on" ? 1 : 0 );
+		
+		var param = {sid:sid};
+
+		if (c1_on) {
+			param.type1 = c1_type;
+			param.desc1 = c1_desc;
+			param.on1 = c1_on;
+		};
+
+		if (c5_on) {
+			param.type5 = c5_type;
+			param.desc5 = c5_desc;
+			param.on5 = c5_on;
+		};
+			
+		
+		$.ajax ({
+			url:"http://teamsf.co.kr/~coms/shop_benefit_modify.php",
+			data:param,
+			dataType:"json",
+			type:"post"
+		}).done ( function ( resultObj )
+		{
+			if ( resultObj.success == true )
+			{
+				doAlert ( "콤보 서비스 변경에 성공하였습니다." , "콤보 서비스 변경" , function () {} );
+				window.location.replace("./index.html");
+			}
+		});
+	});
 }
 
 function doAlert ( msg , title , callbackFunction )

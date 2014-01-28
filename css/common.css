@@ -33,6 +33,7 @@ p{
 	background: linear-gradient(to bottom,  rgb(84,168,219) 0%,rgb(84,168,219) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgb(84,168,219)', endColorstr='rgb(84,168,219)',GradientType=0 ); /* IE6-9 */
 }
+/*
 .ui-btn-active,  .ui-btn-active:hover, .ui-btn-active:visited{
 	text-decoration: none;
 	text-shadow:none;
@@ -46,6 +47,7 @@ p{
 	background: linear-gradient(to bottom,  rgb(248,248,248) 0%,rgb(248,248,248) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgb(248,248,248)', endColorstr='rgb(248,248,248)',GradientType=0 ); /* IE6-9 */	
 }
+*/
 .month-result .title{
 	text-align: left;
 	width: 100%;
